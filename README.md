@@ -58,6 +58,77 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
+## Mutations
+
+```bash
+mutation {
+  createOwner(createOwnerInput: { name: "Jon" }) {
+    id
+    name
+  }
+}
+```
+
+```bash
+mutation {
+  createPet(createPetInput: { name: "Spike", ownerId: 1 }) {
+    id
+    name
+  }
+}
+```
+
+## Queries
+
+```bash
+{
+  pets {
+    id
+    name
+    owner {
+      name
+    }
+  }
+}
+```
+
+```bash
+{
+  getPet(id: 1) {
+    id
+    name
+    owner {
+      id
+      name
+    }
+  }
+}
+```
+
+```bash
+{
+  owners {
+    id
+    name
+  }
+}
+```
+
+Not implemented:
+
+```bash
+{
+  owners {
+    id
+    name
+    pets {
+      id
+      name
+    }
+  }
+}
+```
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
